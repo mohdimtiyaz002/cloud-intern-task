@@ -1,0 +1,18 @@
+1. import os
+2. os.chdir(r'C:\Users\dell\Desktop\Assesment')
+3. current_directory = os.getcwd()
+4. print("Current Directory:", current_directory)
+
+output:
+Current Directory: C:\Users\dell\Desktop\Assesment
+
+5. import subprocess
+6.file_path = 'server.py'
+7.subprocess.run(['python', file_path])
+
+outout:
+Running on http://127.0.0.1:5000
+
+To see the functionality:
+http://127.0.0.1:5000/form
+
