@@ -1,12 +1,13 @@
-FROM python:3.9
+FROM ubuntu:latest
 
-WORKDIR /app
+RUN apt-get update && apt-get install -y python3-pip
 
-COPY requirements.txt .
-RUN pip install --no-cache-dir -r requirements.txt
+RUN pip3 install Flask
 
-COPY server.py .
+WORKDIR /home/ubuntu/docker-project/app
+
+COPY app.py .
 
 EXPOSE 5000
 
-CMD ["python", "server.py"]
+CMD ["python3", "app.py"]
