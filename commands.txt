@@ -1,3 +1,7 @@
+PRACTICE COMMANDS
+
+
+
 1. import os
 2. os.chdir(r'C:\Users\dell\Desktop\Assesment')
 3. current_directory = os.getcwd()
