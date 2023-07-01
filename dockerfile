@@ -7,7 +7,8 @@ RUN pip3 install requests pytest
 WORKDIR /home/ubuntu/docker-project/app
 
 COPY app.py .
-
+COPY test_my_website.py .
 EXPOSE 5000
 
 CMD ["python3", "app.py"]
+CMD ["python3", "test_my_website.py"]
