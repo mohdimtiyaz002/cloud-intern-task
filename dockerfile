@@ -11,4 +11,4 @@ COPY test_my_website.py .
 EXPOSE 5000
 
 CMD ["python3", "app.py"]
-CMD ["python3", "test_my_website.py"]
+
