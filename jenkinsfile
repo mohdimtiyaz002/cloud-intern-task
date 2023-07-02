@@ -1,0 +1,10 @@
+node {
+    stage('Run Python File') {
+        docker.image('main-container').inside {
+            // Change 'python:latest' to the appropriate image name that contains Python
+
+            sh 'python3 /home/ubuntu/docker-project/app/test_my_website.py'
+            // Replace '/path/to/python_file.py' with the actual path to your Python file
+        }
+    }
+}
