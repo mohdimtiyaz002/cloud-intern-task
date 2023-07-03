@@ -24,8 +24,18 @@ sudo apt-get install jenkins
 
 creating application file:
 --------------------------
-create a folder name jenkins-project and move into the folder , now create a file name app.py and paste the following code inside it " vim app.py" 
+create a folder name jenkins-project and move into the folder , now create a file name app.py and paste the following code inside it "vim app.py" 
 
+from flask import Flask
+
+app = Flask(__name__)
+
+@app.route('/')
+def hello_world():
+    return 'Hello, World!'
+
+if __name__ == '__main__':
+    app.run(host='0.0.0.0')
 
 --------------------------------
 install plugins, setup userid/pass , login , go to create a job or +new item , give a name and select pipeline and click save 
@@ -41,3 +51,7 @@ node('built-in')
         git branch: 'main', url: 'https://github.com/mohdimtiyaz002/cloud-intern-task.git'
         sh 'python3 /var/lib/jenkins/workspace/PipelineName/test_my_website.py'
     }    
+
+
+when this jenkins job is build it clones the repository associated with the given url in the folder /var/lib/jenkins/workspace/PipelineName
+where PipelieName is the name of the job and runs the test file named test_my_website.py 
