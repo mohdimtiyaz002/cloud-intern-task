@@ -1,0 +1,38 @@
+login to ec2 instance and edit security group and allow all traffic 
+connect to the terminal
+change to root user "sudo su -"
+
+Install the following :
+----------------------
+
+apt-get update
+apt-get install -y python3-pip
+pip3 install Flask
+pip3 install requests pytest
+apt-get install -y openjdk-11-jdk
+
+Install and setup jenkins :
+--------------------------
+
+curl -fsSL https://pkg.jenkins.io/debian-stable/jenkins.io-2023.key | sudo tee \
+  /usr/share/keyrings/jenkins-keyring.asc > /dev/null
+echo deb [signed-by=/usr/share/keyrings/jenkins-keyring.asc] \
+  https://pkg.jenkins.io/debian-stable binary/ | sudo tee \
+  /etc/apt/sources.list.d/jenkins.list > /dev/null
+sudo apt-get update
+sudo apt-get install jenkins
+
+--------------------------------
+install plugins, setup userid/pass , login , go to create a job or +new item , give a name and select pipeline and click save 
+now scroll down and paste the script and click on save , then click on build now , make necessary changes if the build fail and try again till you get build successful
+
+pipeline script:
+----------------
+
+node('built-in')
+{
+    stage('Testing')
+    {
+        git branch: 'main', url: 'https://github.com/mohdimtiyaz002/cloud-intern-task.git'
+        sh 'python3 /var/lib/jenkins/workspace/PipelineName/test_my_website.py'
+    }    
