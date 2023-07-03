@@ -24,6 +24,7 @@ sudo apt-get install jenkins
 
 creating application file:
 --------------------------
+
 create a folder name jenkins-project and move into the folder , now create a file name app.py and paste the following code inside it "vim app.py" 
 
 from flask import Flask
@@ -38,6 +39,7 @@ if __name__ == '__main__':
     app.run(host='0.0.0.0')
 
 --------------------------------
+
 install plugins, setup userid/pass , login , go to create a job or +new item , give a name and select pipeline and click save 
 now scroll down and paste the script and click on save , then click on build now , make necessary changes if the build fail and try again till you get build successful
 
