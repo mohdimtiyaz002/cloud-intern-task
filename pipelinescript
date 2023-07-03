@@ -1,0 +1,9 @@
+node('built-in')
+{
+    stage('Testing')
+    {
+        git branch: 'main', url: 'https://github.com/mohdimtiyaz002/cloud-intern-task.git'
+        sh 'python3 /var/lib/jenkins/workspace/Python/test_my_website.py'
+    }    
+    
+}
