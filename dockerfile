@@ -1,16 +1,19 @@
-FROM ubuntu:latest
+# Use the official Python base image
+FROM python:3.9
 
-RUN apt-get update && apt-get install -y python3-pip
+# Set the working directory inside the container
+WORKDIR /app
 
-RUN pip3 install Flask
-RUN pip3 install requests pytest
-RUN apt-get install -y openjdk-11-jdk
-ADD https://get.jenkins.io/war-stable/2.263.4/jenkins.war  /
-WORKDIR /home/ubuntu/docker-project/app
+# Copy the current directory contents into the container at /app
+COPY . /app
 
-COPY app.py .
-COPY test_my_website.py .
+# Install Flask and any other dependencies
+RUN pip install Flask
+
+# Expose the port that Flask app will listen on
 EXPOSE 5000
 
-CMD ["python3", "app.py"]
+# Set the command to run your Flask app
+CMD ["python", "app.py"]
+
 
